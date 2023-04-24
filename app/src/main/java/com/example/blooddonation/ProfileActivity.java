@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -11,7 +12,9 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.content.res.ColorStateList;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,6 +41,12 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -205,6 +214,49 @@ public class ProfileActivity extends AppCompatActivity {
                                 if((namechange() | phonenumberChange() | emailChange() | dobChange() | passwordChange() | genderChange() | bloodGroupChange())){
                                     Toast.makeText(dialogluscontext, "Account Updated Successfully", Toast.LENGTH_SHORT).show();
                                     dialogPlus.dismiss();
+                                    databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            if (snapshot.hasChild(Usernamesp)){
+                                                namestr =snapshot.child(Usernamesp).child("Full_name").getValue(String.class);
+                                                bloodgroupstr = snapshot.child(Usernamesp).child("BloodGroup").getValue(String.class);
+                                                birthdateStr = snapshot.child(Usernamesp).child("Birth_date").getValue(String.class);
+                                                passwordStr = snapshot.child(Usernamesp).child("Password").getValue(String.class);
+                                                emailstr = snapshot.child(Usernamesp).child("EmailId").getValue(String.class);
+                                                genderstr = snapshot.child(Usernamesp).child("Gender").getValue(String.class);
+                                                monostr = snapshot.child(Usernamesp).child("Phone_no").getValue(String.class);
+
+
+                                                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+                                                LocalDate birthdate = LocalDate.parse(birthdateStr, formatter);
+
+                                                // Calculate the user's age
+                                                Period age = Period.between(birthdate, LocalDate.now());
+
+                                                // Format the age as a string
+                                                ageStr = String.format("%d",age.getYears());
+
+                                                name.setText(namestr);
+                                                username.setText(Usernamesp);
+                                                bloodGroup.setText(bloodgroupstr);
+                                                agetv.setText(ageStr);
+                                                email.setText(emailstr);
+                                                gender.setText(genderstr);
+                                                mono.setText(monostr);
+                                                if(genderstr.equals("Male")){
+                                                    genderImage.setImageResource(R.drawable.man_profile);
+                                                } else if (genderstr.equals("Female")) {
+                                                    genderImage.setImageResource(R.drawable.women_profile);
+                                                }
+
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
                                 }else{
                                     Toast.makeText(dialogluscontext, "You Did not made any changes", Toast.LENGTH_SHORT).show();
                                 }
@@ -262,6 +314,20 @@ public class ProfileActivity extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(),Login.class);
                     startActivity(i);
                     finishAffinity();
+                    break;
+                case R.id.share:
+                    ApplicationInfo app = getApplicationInfo();
+                    String filePath = app.sourceDir;
+
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("*/*");
+
+                    // get apk file using package manager
+                    Uri apkUri = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".fileprovider", new File(filePath));
+
+                    intent.putExtra(Intent.EXTRA_STREAM, apkUri);
+                    startActivity(Intent.createChooser(intent, "Share app via"));
+
                     break;
 //
 //            case R.id.nav_settings_id:

@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.Menu;
@@ -30,6 +33,12 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 public class OrganActivity extends AppCompatActivity {
@@ -92,6 +101,57 @@ public class OrganActivity extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(),Login.class);
                         startActivity(i);
                         finishAffinity();
+                        break;
+                    case R.id.share:
+                        ApplicationInfo app = getApplicationContext().getApplicationInfo();
+                        String filePath = app.sourceDir;
+
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+
+                        // MIME of .apk is "application/vnd.android.package-archive".
+                        // but Bluetooth does not accept this. Let's use "*/*" instead.
+                        intent.setType("*/*");
+
+                        // Append file and send Intent
+                        File originalApk = new File(filePath);
+
+                        try {
+                            //Make new directory in new location=
+                            File tempFile = new File(getExternalCacheDir() + "/ExtractedApk");
+                            //If directory doesn't exists create new
+                            if (!tempFile.isDirectory())
+                                if (!tempFile.mkdirs())
+                                    break;
+                            //Get application's name and convert to lowercase
+                            tempFile = new File(tempFile.getPath() + "/" + getString(app.labelRes).replace(" ","") + ".apk");
+                            //If file doesn't exists create new
+                            if (!tempFile.exists()) {
+                                if (!tempFile.createNewFile()) {
+                                    break;
+                                }
+                            }
+                            //Copy file to new location
+                            InputStream in = new FileInputStream(originalApk);
+                            OutputStream out = new FileOutputStream(tempFile);
+
+                            byte[] buf = new byte[1024];
+                            int len;
+                            while ((len = in.read(buf)) > 0) {
+                                out.write(buf, 0, len);
+                            }
+                            in.close();
+                            out.close();
+                            System.out.println("File copied.");
+                            //Open share dialog
+//          intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(tempFile));
+                            Uri photoURI = FileProvider.getUriForFile(OrganActivity.this, BuildConfig.APPLICATION_ID + ".fileprovider", tempFile);
+//          intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(tempFile));
+                            intent.putExtra(Intent.EXTRA_STREAM, photoURI);
+                            startActivity(Intent.createChooser(intent, "Share app via"));
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         break;
 //
 //            case R.id.nav_settings_id:
