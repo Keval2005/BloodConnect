@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.Menu;
@@ -29,6 +30,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class BloodBankActivity extends AppCompatActivity {
@@ -91,6 +93,16 @@ public class BloodBankActivity extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(),Login.class);
                         startActivity(i);
                         finishAffinity();
+                        break;
+
+                    case R.id.share:
+                        File file = new File("C:/Users/Keval/AndroidStudioProjects/BloodDonation/app/build/outputs/apk/debug/app-debug.apk");
+
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("application/vnd.android.package-archive");
+                        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+
+                        startActivity(Intent.createChooser(shareIntent, "CheckOut this App:"));
                         break;
 //
 //            case R.id.nav_settings_id:
