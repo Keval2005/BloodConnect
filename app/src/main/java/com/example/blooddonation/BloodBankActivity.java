@@ -104,6 +104,7 @@ public class BloodBankActivity extends AppCompatActivity {
 
                         startActivity(Intent.createChooser(shareIntent, "CheckOut this App:"));
                         break;
+
 //
 //            case R.id.nav_settings_id:
 //                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new SettingsFragment())
