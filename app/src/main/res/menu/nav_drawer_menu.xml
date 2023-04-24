@@ -57,9 +57,9 @@
 <!--                app:actionLayout="@layout/nav_drawer_darkmode_switch"-->
 <!--                />-->
             <item
-                android:id="@+id/nav_settings_id"
-                android:title="Settings"
-                android:icon="@drawable/settings"
+                android:id="@+id/share"
+                android:title="Share"
+                android:icon="@drawable/share"
                 />
             <item
                 android:icon="@drawable/log_out"
