@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/BloodBank"
+        android:icon="@drawable/blood_bank"
+        android:title="BloodBank"
+        app:cnb_backgroundColor="@color/white"/>
+
+    <item
+        android:id="@+id/Camp"
+        android:icon="@drawable/camp"
+        android:title="Camp"
+        app:cnb_backgroundColor="@color/white"/>
+
+    <item
+        android:id="@+id/Organ"
+        android:icon="@drawable/organ"
+        android:title="Organ"
+        app:cnb_backgroundColor="@color/white"/>
+
+    <item
+        android:id="@+id/Profile"
+        android:icon="@drawable/profile"
+        android:title="Profile"
+        app:cnb_backgroundColor="@color/white"/>
+
+</menu>

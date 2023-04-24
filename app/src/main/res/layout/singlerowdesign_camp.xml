@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="10sp"
+    android:orientation="vertical"
+    android:id="@+id/singlerow1"
+    app:cardCornerRadius="21sp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="7dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5sp">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_centerVertical="true"
+            android:id="@+id/image"
+            android:layout_margin="8sp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:text="sample Name"
+                        android:textSize="20sp"
+                        android:id="@+id/name"
+                        android:layout_marginLeft="3sp"
+                        android:layout_marginVertical="3sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="sample ID"
+                        android:textSize="15sp"
+                        android:layout_margin="3sp"
+                        android:id="@+id/id"/>
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginVertical="3sp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="end tm"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="1.5sp"
+                        android:textSize="15sp"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tag line"
+                android:id="@+id/tag"
+                android:gravity="left"
+                android:layout_margin="3sp"
+                android:textSize="15sp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Area"
+                    android:id="@+id/pin"
+                    android:gravity="center"
+                    android:layout_marginVertical="3sp"
+                    android:layout_marginHorizontal="3sp"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:text="Area"
+                    android:id="@+id/userid"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:layout_marginHorizontal="7sp"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:text="Area"
+                    android:id="@+id/map"
+                    android:visibility="invisible"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="7sp"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:text="Area"
+                    android:id="@+id/mono"
+                    android:visibility="invisible"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="7sp"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:text="Area"
+                    android:id="@+id/address"
+                    android:visibility="invisible"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="7sp"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:text="Area"
+                    android:id="@+id/date"
+                    android:visibility="invisible"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="7sp"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5sp">
+
+                <Button
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore"
+                    android:id="@+id/Explore1"
+                    android:textAllCaps="false"
+                    app:shapeAppearance="@style/Rounded"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="7dp"
+                    android:textSize="15sp"/>
+
+                <ImageButton
+                    android:layout_marginBottom="7dp"
+                    android:id="@+id/delbtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="ok"
+                    android:background="#ffff"
+                    app:shapeAppearance="@style/Rounded"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/delete"/>
+
+
+                <ImageButton
+                    android:layout_marginBottom="7dp"
+                    android:id="@+id/editbtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="ok"
+                    android:background="#ffff"
+                    app:shapeAppearance="@style/Rounded"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/edit"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

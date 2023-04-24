@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:showAsAction="always"
+        android:icon="@drawable/test1"
+        android:title="">
+
+        <menu
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <item
+                android:id="@+id/app_rating"
+                app:showAsAction="never"
+                android:title="App Rating"/>
+            <item
+                android:id="@+id/faq"
+                app:showAsAction="never"
+                android:title="FAQ"/>
+
+        </menu>
+
+    </item>
+</menu>
