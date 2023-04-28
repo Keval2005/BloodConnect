@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -129,7 +130,7 @@ public class BloodBank_Explore_Fragment extends Fragment {
             public void onClick(View v) {
                 DialogPlus dialogPlus = DialogPlus.newDialog(getContext())
                         .setContentHolder(new ViewHolder(R.layout.blood_data))
-                        .setExpanded(true,1025)
+                        .setExpanded(true, WindowManager.LayoutParams.WRAP_CONTENT)
                         .create();
                 dialogPlus.show();
 

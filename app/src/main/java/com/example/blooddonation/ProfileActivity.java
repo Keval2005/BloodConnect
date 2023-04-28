@@ -3,19 +3,23 @@ package com.example.blooddonation;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -25,6 +29,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,6 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     TextInputEditText updateacc_fullname,updateacc_email,updateacc_password,updateacc_phone,birth_date;
+    ImageView back;
     AutoCompleteTextView auto_complete_txt,gender_auto_complete_txt;
     String[] items = {"A+","B+","AB+","O+","A-","B-","AB-","O-"};
     String[] genders = {"Male","Female","Other"};
@@ -124,7 +130,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(ProfileActivity.this)
-                        .setExpanded(true, 1525)
+                        .setExpanded(true, 1800)
                         .setContentHolder(new ViewHolder(R.layout.update_profile))
                         .create();
                 dialogPlus.show();
@@ -139,6 +145,7 @@ public class ProfileActivity extends AppCompatActivity {
                 updateacc_phone = (TextInputEditText) findViewById(R.id.updateacc_phone);
                 submit = findViewById(R.id.btnUpdate);
                 birth_date = findViewById(R.id.age_date);
+
                 TextInputLayout passwordlayout = findViewById(R.id.passwordlayout);
                 passwordlayout.setPasswordVisibilityToggleEnabled(true);
 //                passwordlayout.setPasswordVisibilityToggleTintList(new ColorStateList(s, com.google.android.material.R.attr.colorPrimary));
@@ -259,6 +266,7 @@ public class ProfileActivity extends AppCompatActivity {
                                     });
                                 }else{
                                     Toast.makeText(dialogluscontext, "You Did not made any changes", Toast.LENGTH_SHORT).show();
+                                    dialogPlus.dismiss();
                                 }
 //                                databaseReference.child("Users").child(Usernamesp).child("Full_name").setValue(updateacc_fullname.getText().toString().trim());
 //                                databaseReference.child("Users").child(Usernamesp).child("Password").setValue(updateacc_password.getText().toString().trim());
@@ -315,19 +323,22 @@ public class ProfileActivity extends AppCompatActivity {
                     startActivity(i);
                     finishAffinity();
                     break;
+
                 case R.id.share:
-                    ApplicationInfo app = getApplicationInfo();
-                    String filePath = app.sourceDir;
+                    String message = "Heyy friends check this Helpful app for Blood Donation: " +
+                            "https://drive.google.com/drive/folders/1O08qxFz5j3RUCz1KZs94Dwp4pf7R5NWu?usp=sharing";
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, message);
+                    sendIntent.setType("text/plain");
 
-                    Intent intent = new Intent(Intent.ACTION_SEND);
-                    intent.setType("*/*");
+                    Intent shareIntent = Intent.createChooser(sendIntent, null);
+                    startActivity(shareIntent);
 
-                    // get apk file using package manager
-                    Uri apkUri = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".fileprovider", new File(filePath));
+                    break;
 
-                    intent.putExtra(Intent.EXTRA_STREAM, apkUri);
-                    startActivity(Intent.createChooser(intent, "Share app via"));
-
+                case R.id.exit:
+                    showExitDialog();
                     break;
 //
 //            case R.id.nav_settings_id:
@@ -498,5 +509,24 @@ public class ProfileActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }
+    }
+
+    public void showExitDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit the app?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finishAffinity();
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Do nothing
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

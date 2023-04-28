@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -54,6 +55,7 @@ public class Signup extends AppCompatActivity {
     TextInputEditText signup_fullname,signup_username,signup_email,signup_password,signup_phone,birth_date,filename_str;
     Button btnSignup,btnUpload;
 
+    ImageButton back;
     String value = null;
     String item = null;
 
@@ -71,6 +73,16 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+
+        back = findViewById(R.id.signup_back_button);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotologin = new Intent(getApplicationContext(),Login.class);
+                startActivity(gotologin);
+                overridePendingTransition(0, 0);
+            }
+        });
 
         auto_complete_txt = findViewById(R.id.auto_complete_txt);
         signup_fullname = (TextInputEditText) findViewById(R.id.signup_fullname);

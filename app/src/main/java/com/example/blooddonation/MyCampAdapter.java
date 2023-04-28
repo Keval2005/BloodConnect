@@ -13,9 +13,11 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
@@ -44,6 +46,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.OnBackPressListener;
 import com.orhanobut.dialogplus.ViewHolder;
 
 import java.text.SimpleDateFormat;
@@ -87,7 +90,8 @@ public class MyCampAdapter extends FirebaseRecyclerAdapter<ModelCamp,MyCampAdapt
                 public void onClick(View v) {
                     final DialogPlus dialogPlus = DialogPlus.newDialog(holder.image.getContext())
                             .setContentHolder(new ViewHolder(R.layout.dialogcontent))
-                            .setExpanded(true,1800)
+                            .setGravity(Gravity.TOP)
+                            .setExpanded(true, WindowManager.LayoutParams.WRAP_CONTENT)
                             .create();
 
                     final Context dialogluscontext = dialogPlus.getHolderView().getContext();
@@ -155,7 +159,6 @@ public class MyCampAdapter extends FirebaseRecyclerAdapter<ModelCamp,MyCampAdapt
                         public void onClick(View v) {
 
                             final String timestr1 = String.valueOf(String.valueOf(st.getText().toString()) + " To " + String.valueOf(et.getText().toString()));
-
                             Map<String,Object> map = new HashMap<>();
                             map.put("mono",monoob.getText().toString());
                             map.put("name",nameob.getText().toString());

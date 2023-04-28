@@ -123,7 +123,7 @@ public class Login extends AppCompatActivity {
                                     share();
 
 
-                                    Intent intent = new Intent(getApplicationContext(),CampActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(),OnBoarding.class);
                                     startActivity(intent);
                                     finish();
 
@@ -216,10 +216,10 @@ public class Login extends AppCompatActivity {
 //    }
 
     private void share() {
-        SharedPreferences pref = getSharedPreferences("login",MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putBoolean("flag",true);
-        editor.apply();
+//        SharedPreferences pref = getSharedPreferences("login",MODE_PRIVATE);
+//        SharedPreferences.Editor editor = pref.edit();
+//        editor.putBoolean("flag",true);
+//        editor.apply();
 
         SharedPreferences sharedPref = getSharedPreferences("myKey", MODE_PRIVATE);
         SharedPreferences.Editor editor1 = sharedPref.edit();

@@ -10,20 +10,27 @@
         android:padding="15sp"
         android:id="@+id/scrollView">
 
-
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Update Account:"
-                android:textSize="30sp"
-                android:layout_marginTop="15sp"
-                android:transitionName="transition_title_text" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/bloodbank_title_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Update Account:"
+                    android:textSize="28sp"
+                    android:transitionName="transition_title_text" />
+
+
+
+            </RelativeLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:drawablePadding="2dp"

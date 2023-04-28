@@ -11,6 +11,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
@@ -103,55 +105,19 @@ public class BloodBankActivity extends AppCompatActivity {
                         break;
 
                     case R.id.share:
-                        ApplicationInfo app = getApplicationContext().getApplicationInfo();
-                        String filePath = app.sourceDir;
+                        String message = "Heyy friends check this Helpful app for Blood Donation: " +
+                                "https://drive.google.com/drive/folders/1O08qxFz5j3RUCz1KZs94Dwp4pf7R5NWu?usp=sharing";
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.putExtra(Intent.EXTRA_TEXT, message);
+                        sendIntent.setType("text/plain");
 
-                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        Intent shareIntent = Intent.createChooser(sendIntent, null);
+                        startActivity(shareIntent);
+                        break;
 
-                        // MIME of .apk is "application/vnd.android.package-archive".
-                        // but Bluetooth does not accept this. Let's use "*/*" instead.
-                        intent.setType("*/*");
-
-                        // Append file and send Intent
-                        File originalApk = new File(filePath);
-
-                        try {
-                            //Make new directory in new location=
-                            File tempFile = new File(getExternalCacheDir() + "/ExtractedApk");
-                            //If directory doesn't exists create new
-                            if (!tempFile.isDirectory())
-                                if (!tempFile.mkdirs())
-                                    break;
-                            //Get application's name and convert to lowercase
-                            tempFile = new File(tempFile.getPath() + "/" + getString(app.labelRes).replace(" ","").toLowerCase() + ".apk");
-                            //If file doesn't exists create new
-                            if (!tempFile.exists()) {
-                                if (!tempFile.createNewFile()) {
-                                    break;
-                                }
-                            }
-                            //Copy file to new location
-                            InputStream in = new FileInputStream(originalApk);
-                            OutputStream out = new FileOutputStream(tempFile);
-
-                            byte[] buf = new byte[1024];
-                            int len;
-                            while ((len = in.read(buf)) > 0) {
-                                out.write(buf, 0, len);
-                            }
-                            in.close();
-                            out.close();
-                            System.out.println("File copied.");
-                            //Open share dialog
-//          intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(tempFile));
-                            Uri photoURI = FileProvider.getUriForFile(BloodBankActivity.this, BuildConfig.APPLICATION_ID + ".fileprovider", tempFile);
-//          intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(tempFile));
-                            intent.putExtra(Intent.EXTRA_STREAM, photoURI);
-                            startActivity(Intent.createChooser(intent, "Share app via"));
-
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                    case R.id.exit:
+                        showExitDialog();
                         break;
 
 //
@@ -330,5 +296,24 @@ public class BloodBankActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }
+    }
+
+    public void showExitDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit the app?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finishAffinity();
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Do nothing
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

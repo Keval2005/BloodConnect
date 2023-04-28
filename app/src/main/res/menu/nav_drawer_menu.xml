@@ -62,9 +62,14 @@
                 android:icon="@drawable/share"
                 />
             <item
-                android:icon="@drawable/log_out"
+                android:icon="@drawable/logout"
                 android:id="@+id/log_out"
                 android:title="Log Out"
+                />
+            <item
+                android:icon="@drawable/exit"
+                android:id="@+id/exit"
+                android:title="Exit the App"
                 />
         </menu>
     </item>

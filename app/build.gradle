@@ -48,6 +48,9 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-analytics'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //for sending otp to email
+    implementation 'com.sun.mail:android-mail:1.6.2'
+    implementation 'com.sun.mail:android-activation:1.6.2'
 
     //Butter Knife
     implementation 'com.jakewharton:butterknife:10.2.3'

@@ -8,24 +8,29 @@
     tools:context=".Login"
     android:padding="20sp">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/logo_image"-->
-<!--        android:layout_width="150sp"-->
-<!--        android:layout_height="150sp"-->
-<!--        android:layout_marginTop="30sp"/>-->
+    <ImageView
+        android:id="@+id/logo_image"
+        android:src="@drawable/blood"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30sp"
+        android:layout_marginBottom="5sp"/>
 
     <TextView
         android:id="@+id/logo_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Welcome Back, User"
-        android:textSize="30sp"
+        android:textSize="22sp"
         android:layout_margin="5sp"/>
     <TextView
         android:id="@+id/slogan_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign In To Continue"
+        android:layout_gravity="center"
         android:layout_margin="5sp"
         android:textSize="18sp"/>
     <LinearLayout

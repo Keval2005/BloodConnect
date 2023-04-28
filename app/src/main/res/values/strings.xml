@@ -4,4 +4,7 @@
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bloodbank">In Blood Bank section you can explore blood bank around you by pin code</string>
+    <string name="camp">In Camp section you can explore blood donation camps around you</string>
+    <string name="organ">In Organ section you can explore Hospitals that do organ donation procedures around you</string>
 </resources>
