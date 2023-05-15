@@ -22,7 +22,7 @@ public class OnBoarding extends AppCompatActivity {
     LinearLayout dotsLayout;
     SliderAdapter sliderAdapter;
     TextView[] dots;
-    Button letsGetStarted;
+    Button letsGetStarted,nextButton;
     Animation animation;
     int currentPos;
 
@@ -35,6 +35,8 @@ public class OnBoarding extends AppCompatActivity {
         viewPager = findViewById(R.id.slider);
         dotsLayout = findViewById(R.id.dots);
         letsGetStarted = findViewById(R.id.get_stared_btn);
+        nextButton = findViewById(R.id.next_btn);
+
 
         sliderAdapter = new SliderAdapter(this);
         viewPager.setAdapter(sliderAdapter);
@@ -93,9 +95,12 @@ public class OnBoarding extends AppCompatActivity {
             currentPos = position;
             if (position == 0){
                 letsGetStarted.setVisibility(View.INVISIBLE);
+                nextButton.setVisibility(View.VISIBLE);
             } else if (position == 1){
                 letsGetStarted.setVisibility(View.INVISIBLE);
+                nextButton.setVisibility(View.VISIBLE);
             } else {
+                nextButton.setVisibility(View.INVISIBLE);
                 animation = AnimationUtils.loadAnimation(OnBoarding.this,R.anim.bottom_animation);
                 letsGetStarted.setAnimation(animation);
                 letsGetStarted.setVisibility(View.VISIBLE);

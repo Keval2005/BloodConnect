@@ -25,7 +25,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Update Account:"
-                    android:textSize="28sp"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
                     android:transitionName="transition_title_text" />
 
 

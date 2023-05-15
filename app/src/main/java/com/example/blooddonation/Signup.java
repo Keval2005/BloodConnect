@@ -73,6 +73,7 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         back = findViewById(R.id.signup_back_button);
         back.setOnClickListener(new View.OnClickListener() {

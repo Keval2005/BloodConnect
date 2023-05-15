@@ -15,6 +15,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/blood"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodDonation"
         tools:targetApi="31">

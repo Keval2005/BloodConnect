@@ -43,6 +43,14 @@
                 android:layout_height="match_parent"
                 android:id="@+id/rl1">
 
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="?attr/actionBarSize"-->
+<!--                    android:text="BloodBanks"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textColor="?attr/colorPrimary"-->
+<!--                    android:textSize="22sp"/>-->
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

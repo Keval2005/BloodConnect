@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
     Button btnLogin;
     Button signup,fp;
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+//    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 //    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl
 //            ("https://finalproject1-c0216-default-rtdb.firebaseio.com");
 
@@ -58,6 +58,7 @@ public class Login extends AppCompatActivity {
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
         SharedPreferences sp = getSharedPreferences("login",MODE_PRIVATE);
         Boolean logedIn = sp.getBoolean("flag",false);
@@ -112,11 +113,11 @@ public class Login extends AppCompatActivity {
                     databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.hasChild(usernamestr)){
+                            if (snapshot.hasChild(username.getText().toString().trim())){
 
-                                final String getpassword = snapshot.child(usernamestr).child("Password").getValue(String.class);
+                                final String getpassword = snapshot.child(username.getText().toString().trim()).child("Password").getValue(String.class);
 
-                                if (getpassword.equals(passwordstr)){
+                                if (getpassword.equals(password.getText().toString().trim())){
                                     Toast.makeText(Login.this,
                                             "Logged In Successfully", Toast.LENGTH_SHORT).show();
 

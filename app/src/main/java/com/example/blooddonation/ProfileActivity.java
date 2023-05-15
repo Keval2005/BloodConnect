@@ -61,6 +61,8 @@ import java.util.Locale;
 
 public class ProfileActivity extends AppCompatActivity {
     private Toolbar toolbar;
+
+    int ageint;
     private DrawerLayout drawerLayout;
     private FrameLayout frameLayout;
     private NavigationView navigationView;
@@ -240,8 +242,15 @@ public class ProfileActivity extends AppCompatActivity {
                                                 // Calculate the user's age
                                                 Period age = Period.between(birthdate, LocalDate.now());
 
-                                                // Format the age as a string
-                                                ageStr = String.format("%d",age.getYears());
+                                                if (age.getYears()<0){
+                                                    ageint = Math.abs(age.getYears());
+                                                    ageint = 100 - (ageint % 100);
+                                                    ageStr = String.valueOf(ageint);
+                                                }
+                                                else {
+                                                    // Format the age as a string
+                                                    ageStr = String.format("%d", age.getYears());
+                                                }
 
                                                 name.setText(namestr);
                                                 username.setText(Usernamesp);
@@ -369,10 +378,15 @@ public class ProfileActivity extends AppCompatActivity {
 
                     // Calculate the user's age
                     Period age = Period.between(birthdate, LocalDate.now());
-
-                    // Format the age as a string
-                    ageStr = String.format("%d",age.getYears());
-
+                    if (age.getYears()<0){
+                        ageint = Math.abs(age.getYears());
+                        ageint = 100 - (ageint % 100);
+                        ageStr = String.valueOf(ageint);
+                    }
+                    else {
+                        // Format the age as a string
+                        ageStr = String.format("%d", age.getYears());
+                    }
                     name.setText(namestr);
                     username.setText(Usernamesp);
                     bloodGroup.setText(bloodgroupstr);
@@ -470,7 +484,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void initializeViews() {
         toolbar = findViewById(R.id.toolbar_id);
-        toolbar.setTitle("Blood Donation App");
+        toolbar.setTitle("Profile");
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout_id);
         frameLayout = findViewById(R.id.framelayout_id);

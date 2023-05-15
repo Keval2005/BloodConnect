@@ -12,7 +12,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="32sp"
         android:src="@drawable/blood" />
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Blood Donation"
+        android:text="Blood Donation App"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
         android:textSize="18sp"
         android:textColor="@android:color/black"/>

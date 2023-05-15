@@ -143,7 +143,7 @@ public class ngoActivity extends AppCompatActivity {
 
     private void initializeViews() {
         toolbar = findViewById(R.id.toolbar_id);
-        toolbar.setTitle("Blood Donation App");
+        toolbar.setTitle("Helper NGOs");
         setSupportActionBar(toolbar);
     }
 

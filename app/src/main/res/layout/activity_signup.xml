@@ -19,7 +19,7 @@
                 android:id="@+id/signup_back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35sp"
+                android:layout_marginTop="5sp"
                 android:contentDescription="ok"
                 android:backgroundTint="#00FFFFFF"
                 android:transitionName="transition_back_arrow_btn"
@@ -33,9 +33,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Create Account:"
+                android:textSize="22sp"
+                android:layout_marginTop="5sp"
                 android:textColor="@color/black"
-                android:textSize="30sp"
-                android:layout_marginTop="25sp"
                 android:transitionName="transition_title_text" />
 
         </RelativeLayout>
@@ -198,15 +198,14 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/black"
+                    android:layout_height="1dp"
+                    android:background="@color/defaultTextColor"
                     android:layout_marginTop="20dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Choose Gender"
-                    android:textColor="@color/black"
                     android:layout_marginTop="10dp"
                     android:textSize="18sp"/>
                 <RadioGroup
@@ -239,8 +238,8 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/black"
+                    android:layout_height="1dp"
+                    android:background="@color/defaultTextColor"
                     android:layout_marginTop="20dp"/>
 
 

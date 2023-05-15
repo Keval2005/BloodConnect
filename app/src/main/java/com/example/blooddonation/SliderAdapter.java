@@ -22,9 +22,9 @@ public class SliderAdapter extends PagerAdapter {
 
     int images[] = {
 
-            R.drawable.blood_bank,
-            R.drawable.camp,
-            R.drawable.organ
+            R.drawable.blood_bank_white,
+            R.drawable.camp_white,
+            R.drawable.organ_white
     };
     int headings[] = {
             R.string.bloodbank,

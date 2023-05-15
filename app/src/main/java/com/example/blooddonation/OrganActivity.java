@@ -237,7 +237,7 @@ public class OrganActivity extends AppCompatActivity {
 
     private void initializeViews() {
         toolbar = findViewById(R.id.toolbar_id);
-        toolbar.setTitle("Blood Donation App");
+        toolbar.setTitle("Hospitals");
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout_id);
         frameLayout = findViewById(R.id.framelayout_id);

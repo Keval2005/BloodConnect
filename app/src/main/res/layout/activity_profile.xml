@@ -39,9 +39,11 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
+
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fadeScrollbars="true"
                 android:scrollbars="vertical">
 
                 <androidx.cardview.widget.CardView
@@ -148,7 +150,6 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="A+"
                                         android:id="@+id/bloodGroupPf1"
                                         android:gravity="center"
                                         android:textSize="18sp"/>
@@ -156,7 +157,7 @@
                                 <View
                                     android:layout_width="1sp"
                                     android:layout_height="match_parent"
-                                    android:background="@color/black"
+                                    android:background="@color/defaultTextColor"
                                     android:layout_marginVertical="5sp"/>
                                 <LinearLayout
                                     android:layout_width="0sp"
@@ -174,7 +175,6 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Female"
                                         android:id="@+id/genderPf1"
                                         android:gravity="center"
                                         android:textSize="18sp"/>
@@ -193,7 +193,7 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                app:cardElevation="8sp"
+                                app:cardElevation="3sp"
                                 android:layout_margin="15sp"
                                 app:cardCornerRadius="18sp"
                                 android:padding="18sp">
@@ -212,7 +212,6 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="18"
                                         android:id="@+id/agePf1"
                                         android:layout_marginBottom="8sp"
                                         android:layout_marginHorizontal="15sp"
@@ -222,7 +221,7 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                app:cardElevation="8sp"
+                                app:cardElevation="3sp"
                                 android:layout_marginHorizontal="15sp"
                                 app:cardCornerRadius="18sp"
                                 android:padding="18sp">
@@ -241,7 +240,6 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Sample@gmail.com"
                                         android:id="@+id/emailPf1"
                                         android:layout_marginBottom="8sp"
                                         android:layout_marginHorizontal="15sp"
@@ -251,7 +249,7 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                app:cardElevation="8sp"
+                                app:cardElevation="3sp"
                                 android:layout_margin="15sp"
                                 app:cardCornerRadius="18sp"
                                 android:padding="18sp">
@@ -270,7 +268,6 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="1111111111"
                                         android:id="@+id/monoPf1"
                                         android:layout_marginBottom="8sp"
                                         android:layout_marginHorizontal="15sp"

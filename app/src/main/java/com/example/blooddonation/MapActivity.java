@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -17,6 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.greenrobot.eventbus.util.ErrorDialogManager;
 
@@ -33,6 +35,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         setContentView(R.layout.activity_map);
         dataIntent = getIntent();
         map = findViewById(R.id.map);
+
+        Snackbar snackbar = Snackbar.make(map, "Press back after you select location on map to set it", Snackbar.LENGTH_LONG);
+        snackbar.setAction("OK", v1 -> {
+            snackbar.dismiss(); // Dismiss the Snackbar
+        });
+        snackbar.show();
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
