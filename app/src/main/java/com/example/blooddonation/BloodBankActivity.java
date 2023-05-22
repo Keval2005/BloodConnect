@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
@@ -62,6 +63,8 @@ public class BloodBankActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_blood_bank);
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         initializeViews();
         toggleDrawer();
@@ -239,6 +242,18 @@ public class BloodBankActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         adapter1.stopListening();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter1.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter1.notifyDataSetChanged();
     }
 
     private void processsearch(String s) {

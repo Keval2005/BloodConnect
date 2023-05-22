@@ -52,7 +52,7 @@ public class OnBoarding extends AppCompatActivity {
                 editor.putBoolean("flag",true);
                 editor.apply();
 
-                Intent intent = new Intent(getApplicationContext(),ProfileActivity.class);
+                Intent intent = new Intent(getApplicationContext(),BloodBankActivity.class);
                 startActivity(intent);
 
             }

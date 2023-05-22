@@ -50,6 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/recview_ngo"
                     android:layout_margin="32sp"
+                    android:backgroundTint="#f0f8ff"
                     android:id="@+id/voice_floatingbtn"
                     android:layout_alignEnd="@+id/recview_ngo"
                     android:contentDescription="ok"

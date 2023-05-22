@@ -67,6 +67,7 @@
                     android:layout_alignBottom="@+id/recview_bloodbank"
                     android:layout_margin="32sp"
                     android:id="@+id/voice_floatingbtn"
+                    android:backgroundTint="#f0f8ff"
                     android:layout_alignEnd="@+id/recview_bloodbank"
                     android:contentDescription="ok"
                     android:clickable="true" />

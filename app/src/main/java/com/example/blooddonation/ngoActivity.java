@@ -128,6 +128,18 @@ public class ngoActivity extends AppCompatActivity {
         adapter1.stopListening();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter1.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter1.notifyDataSetChanged();
+    }
+
     private void processsearch(String s) {
 
         FirebaseRecyclerOptions<ModelNGO> options1 =

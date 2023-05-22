@@ -41,7 +41,7 @@ public class SplashScreen extends AppCompatActivity {
 
                 Intent intent;
                 if(check){
-                    intent = new Intent(getApplicationContext(),ProfileActivity.class);
+                    intent = new Intent(getApplicationContext(),BloodBankActivity.class);
                 } else {
                     intent = new Intent(getApplicationContext(),Login.class);
                 }

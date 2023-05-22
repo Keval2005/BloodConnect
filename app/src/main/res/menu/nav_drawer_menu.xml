@@ -17,7 +17,7 @@
         <item
             android:id="@+id/Organ"
             android:icon="@drawable/organ"
-            android:title="Organ"/>
+            android:title="Organ Hospital"/>
 
         <item
             android:id="@+id/Profile"

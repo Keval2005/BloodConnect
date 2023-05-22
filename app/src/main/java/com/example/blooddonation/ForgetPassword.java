@@ -115,7 +115,7 @@ public class ForgetPassword extends AppCompatActivity {
                                         == PackageManager.PERMISSION_GRANTED) {
                                     // Permission is already granted, do the work that requires this permission.
                                     // ...
-                                    Toast.makeText(ForgetPassword.this, String.valueOf(otpsend), Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(ForgetPassword.this, String.valueOf(otpsend), Toast.LENGTH_SHORT).show();
                                     // Get an instance of the SmsManager class
                                     SmsManager smsManager = SmsManager.getDefault();
 

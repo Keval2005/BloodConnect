@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
@@ -62,6 +63,8 @@ public class CampActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_camp);
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         initializeViews();
         toggleDrawer();
@@ -154,7 +157,7 @@ public class CampActivity extends AppCompatActivity {
         createCamp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Enter Details to create camp", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "Enter Details to create camp", Toast.LENGTH_LONG).show();
                 Intent cc = new Intent(CampActivity.this,CreateCamp.class);
                 startActivity(cc);
             }
@@ -180,6 +183,18 @@ public class CampActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         adapter1.stopListening();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter1.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter1.notifyDataSetChanged();
     }
 
     @Override

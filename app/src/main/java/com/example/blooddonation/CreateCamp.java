@@ -19,11 +19,13 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -60,6 +62,8 @@ public class CreateCamp extends AppCompatActivity {
 
     SharedPreferences tempCampCreateInfo;
     String edtdate;
+
+    LinearLayout linearLayout;
     String date,time,map,id,name,address,mono,tag,pin,userid,a,b,c,uristr,wow;
 
     String ststr,etstr;
@@ -70,6 +74,9 @@ public class CreateCamp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_camp);
 
+        linearLayout = findViewById(R.id.createcampParentLayout);
+
+        Snackbar.make(linearLayout, "Double Click on Date,Time and Helper Ngo Fields to Enter data in them", Snackbar.LENGTH_LONG).show();
         back = findViewById(R.id.create_camp_back_button);
         idob = findViewById(R.id.camp_ID);
         nameob = findViewById(R.id.camp_name);
@@ -329,7 +336,7 @@ public class CreateCamp extends AppCompatActivity {
                                     //  uristr = String.valueOf(uri);
                                     uristr = uri.toString();
                                     databaseReference.child("camp").child("not_approved").child(id).child("image").setValue(uristr);
-
+                                    dialog.dismiss();
 
                                     idob.setText("");
                                     nameob.setText("");
@@ -345,10 +352,13 @@ public class CreateCamp extends AppCompatActivity {
                                     ngoName.setText("");
                                     img.setImageBitmap(null);
                                     filepath =null;
-                                    dialog.dismiss();
-                                    Toast.makeText(CreateCamp.this,
-                                            "Campaign Request Registered Successfully",
-                                            Toast.LENGTH_LONG);
+
+                                    Snackbar.make(linearLayout
+                                            , "Campaign Request Registered Successfully"
+                                            ,Snackbar.LENGTH_LONG ).show();
+//                                    Toast.makeText(CreateCamp.this,
+//                                            "Campaign Request Registered Successfully",
+//                                            Toast.LENGTH_LONG);
                                 }
                             });
                         }

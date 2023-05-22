@@ -18,14 +18,16 @@
             android:layout_height="250sp"
             android:layout_gravity="center"
             android:src="@drawable/blood"/>
+
         <TextView
             android:id="@+id/textview"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="?attr/colorPrimary"
             android:layout_marginTop="180sp"
             android:text="Blood Donation"
-            android:textSize="40sp"/>
+            android:textColor="?attr/colorPrimary"
+            android:textSize="40sp" />
 
     </LinearLayout>
 </ScrollView>

@@ -1,17 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BloodDonation" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.BloodDonation.Light" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#FF3131</item>
+        <item name="colorPrimary">#00bfff</item>
+<!--        deep sky blue: #00bfff -->
+
 <!--        #FF3131-->
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/white</item>
-        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorSecondary">#00bfff</item>
+        <item name="colorSecondaryVariant">#00bfff</item>
+        <!--        aqua blue: #f0f8ff-->
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+        <item name="fontFamily">@font/font4</item>
     </style>
 </resources>
