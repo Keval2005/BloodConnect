@@ -62,7 +62,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:id="@+id/o10"
-                android:text="Virat Kohli" />
+                android:text="" />
 
         </TableRow>
         <TableRow android:background="#F0F7F7"
@@ -80,7 +80,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:id="@+id/o11"
-                android:text="Rohit Sharma" />
+                android:text="" />
 
         </TableRow>
         <TableRow android:background="#F0F7F7" android:padding="5dp">
@@ -97,7 +97,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:id="@+id/o12"
-                android:text="Faf du Plessis" />
+                android:text="" />
 
         </TableRow>
 
@@ -115,7 +115,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:id="@+id/o13"
-                android:text="Steven Smith" />
+                android:text="" />
 
         </TableRow>
 
@@ -133,7 +133,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:id="@+id/o14"
-                android:text="Ross Taylor" />
+                android:text="" />
 
 
         </TableRow>
@@ -152,7 +152,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:id="@+id/o15"
-                android:text="Ross Taylor" />
+                android:text="" />
 
 
         </TableRow>
@@ -171,7 +171,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:id="@+id/o16"
-                android:text="Ross Taylor" />
+                android:text="" />
 
 
         </TableRow>
@@ -189,7 +189,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:id="@+id/o17"
-                android:text="Ross Taylor" />
+                android:text="" />
 
 
         </TableRow>
