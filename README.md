@@ -3,6 +3,8 @@ Blood Donation System
 The Blood Donation System is an Android application designed to streamline blood and organ donation processes. It enables users to donate and receive blood, create and view blood donation campaigns, and access information about nearby blood banks and hospitals. Developed as a diploma project, this app aims to address the challenges of blood donation by providing an efficient and user-friendly platform.
 
 
+
+
 Usage
 
 The app caters to three main user types: regular users, blood banks, and admins. Here’s what each can do:
@@ -23,11 +25,15 @@ Manage Campaigns: Create a new campaign or browse existing ones.
 Organ Donation: Get info on organ donation and nearby hospitals.
 
 
+
+
 Blood Bank Side
 
 Update Info: Keep your blood bank’s details current (address, stock, etc.).
 
 Handle Requests: Respond to donation or blood requests from users.
+
+
 
 
 Admin Side
