@@ -5,7 +5,7 @@ The Blood Donation System is an Android application designed to streamline blood
 
 
 
-* For more details explore the documentation section of the project
+* For more details explore the documentation section and Screenshots of the project
 
 
 
